@@ -12,7 +12,7 @@ services:
       - naming-server
     environment:
       EUREKA.CLIENT.SERVICEURL.DEFAULTZONE: http://naming-server:8761/eureka
-      MANAGEMENT.ZIPKIN.TRACING.ENDPOINT: http://zipkin-server:9411/
+      MANAGEMENT.ZIPKIN.TRACING.ENDPOINT: http://zipkin-server:9411/api/v2/spans
 
   currency-conversion:
     image: docker1234anoop/currency-conversion-service:0.0.1-SNAPSHOT
@@ -25,7 +25,7 @@ services:
       - naming-server
     environment:
       EUREKA.CLIENT.SERVICEURL.DEFAULTZONE: http://naming-server:8761/eureka
-      MANAGEMENT.ZIPKIN.TRACING.ENDPOINT: http://zipkin-server:9411/
+      MANAGEMENT.ZIPKIN.TRACING.ENDPOINT: http://zipkin-server:9411/api/v2/spans
 
   api-gateway:
     image: docker1234anoop/api-gateway:0.0.1-SNAPSHOT
@@ -38,15 +38,16 @@ services:
       - naming-server
     environment:
       EUREKA.CLIENT.SERVICEURL.DEFAULTZONE: http://naming-server:8761/eureka
-      MANAGEMENT.ZIPKIN.TRACING.ENDPOINT: http://zipkin-server:9411/
+      MANAGEMENT.ZIPKIN.TRACING.ENDPOINT: http://zipkin-server:9411/api/v2/spans
 
   zipkin-server:
-    image: openzipkin/2.24.3
+    image: openzipkin/zipkin:2.24.3
     mem_limit: 300m
     ports:
       - "9411:9411"
     networks:
       - currency-network
+    restart: always
 
   naming-server:
     image: docker1234anoop/naming-server:0.0.1-SNAPSHOT
