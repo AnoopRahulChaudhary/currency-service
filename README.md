@@ -16,11 +16,11 @@ How to start the service -
 3. Run the command `docker compose up`
 
 Check if all services up, for following health urls, we should get `UP` service status -
-currency-exchange : http://localhost:8000/actuator/health
-currency-conversion : http://localhost:8100/actuator/health
-api-gateway: http://localhost:8765/actuator/health
-naming service: http://localhost:8761/actuator/health
-zipkin server: http://localhost:9411/actuator/health
+- currency-exchange : http://localhost:8000/actuator/health
+- currency-conversion : http://localhost:8100/actuator/health
+- api-gateway: http://localhost:8765/actuator/health
+- naming service: http://localhost:8761/actuator/health
+- zipkin server: http://localhost:9411/actuator/health
 
 
 When all server are up after `docker compose up` command we can test following api -
