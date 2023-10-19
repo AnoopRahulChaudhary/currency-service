@@ -10,10 +10,10 @@ This service comprised of following microservices -
 
 How to start the service -
 - Required software - git, docker
-- Run following command after making sure that you have installed git and docker in the system.
-1. clone the project - `git clone https://github.com/AnoopRahulChaudhary/currency-service.git`
-2. Go inside the `currency-service` project by running command `cd currency-service/`.
-3. Run the command `docker compose up`
+- Make sure that you have installed git and docker in the system and then run the following commands.
+1. Command to clone the project - `git clone https://github.com/AnoopRahulChaudhary/currency-service.git`
+2. Command to Go inside the `currency-service/docker-deployment` directory - `cd currency-service/docker-deployment`
+3. Command to start installation of the service - `docker compose up`
 
 Check if all services up, for following health urls, we should get `UP` service status -
 - currency-exchange : http://localhost:8000/actuator/health
