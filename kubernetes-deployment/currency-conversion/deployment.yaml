@@ -51,10 +51,13 @@ spec:
     - port: 8100
       protocol: TCP
       targetPort: 8100
+      nodePort: 31100
   selector:
     app: currency-conversion
   sessionAffinity: None
-  type: LoadBalancer
+  #type: LoadBalancer
+  #type: NodePort => used for local setup
+  type: NodePort
 ---
 apiVersion: v1
 kind: ConfigMap
